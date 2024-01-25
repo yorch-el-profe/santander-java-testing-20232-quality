@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ApplicationTest {
 
+	// Smoke Test
 	@Test
 	void contextLoads() {
 	}
