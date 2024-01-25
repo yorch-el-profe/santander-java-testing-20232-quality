@@ -1,6 +1,6 @@
 package org.bedu.service;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +16,6 @@ public class InterviewerServiceTest {
   @Test
   @DisplayName("Service should be injected")
   public void smokeTest() {
-    assertNull(service);
+    assertNotNull(service);
   }
 }
