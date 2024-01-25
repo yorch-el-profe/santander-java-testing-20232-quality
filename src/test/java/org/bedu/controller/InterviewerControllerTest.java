@@ -2,11 +2,13 @@ package org.bedu.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import org.bedu.dto.CreateInterviewerDTO;
 import org.bedu.dto.InterviewerDTO;
 import org.bedu.service.InterviewerService;
 import org.junit.jupiter.api.DisplayName;
@@ -55,5 +57,31 @@ public class InterviewerControllerTest {
 
     // Assert
     assertEquals(fakeData, result);
+  }
+
+  @Test
+  @DisplayName("Controller should save an interviewer")
+  public void saveTest() {
+    // Arrange
+    CreateInterviewerDTO dto = new CreateInterviewerDTO();
+
+    dto.setName("Maria Mercedes");
+    dto.setEmail("maria@test.com");
+
+    InterviewerDTO saved = new InterviewerDTO();
+
+    saved.setId(200);
+    saved.setName("Maria Mercedes");
+    saved.setEmail("maria@test.com");
+
+    when(service.save(any(CreateInterviewerDTO.class))).thenReturn(saved);
+
+    // Act
+    InterviewerDTO result = controller.save(dto);
+
+    // Assert
+    assertNotNull(result);
+    assertEquals(dto.getName(), result.getName());
+    assertEquals(dto.getEmail(), result.getEmail());
   }
 }
