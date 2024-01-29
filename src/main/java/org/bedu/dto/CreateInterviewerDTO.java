@@ -6,9 +6,10 @@ import lombok.Data;
 
 @Data
 public class CreateInterviewerDTO {
-  @NotBlank
+  @NotBlank(message = "El nombre es obligatorio")
   private String name;
 
+  @NotBlank(message = "El correo electronico es obligatorio")
   @Email
   private String email;
 }
