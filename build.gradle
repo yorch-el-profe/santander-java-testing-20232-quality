@@ -75,3 +75,9 @@ test {
 		]
 	}
 }
+
+// Al ejecutar "gradle sonar" se ejecuta 
+// primero "gradle test" (y a su vez ejecuta "gradle jacocoTestReport")
+tasks.named('sonar') {
+	dependsOn test
+}
