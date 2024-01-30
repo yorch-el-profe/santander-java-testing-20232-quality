@@ -13,11 +13,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class InterviewerService {
 
-  @Autowired
   private InterviewerRepository repository;
 
-  @Autowired
   private InterviewerMapper mapper;
+
+  @Autowired
+  public InterviewerService(InterviewerRepository repository, InterviewerMapper mapper) {
+    this.repository = repository;
+    this.mapper = mapper;
+  }
 
   public InterviewerDTO save(CreateInterviewerDTO dto) {
     Interviewer model = mapper.toModel(dto);

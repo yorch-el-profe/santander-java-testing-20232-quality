@@ -21,7 +21,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-public class InterviewerControllerTest {
+class InterviewerControllerTest {
 
   @MockBean
   private InterviewerService service;
@@ -31,13 +31,13 @@ public class InterviewerControllerTest {
 
   @Test
   @DisplayName("Controller should be injected")
-  public void smokeTest() {
+  void smokeTest() {
     assertNotNull(controller);
   }
 
   @Test
   @DisplayName("Controller should return a list of interviewers")
-  public void findAllTest() {
+  void findAllTest() {
     // Arrange
     List<InterviewerDTO> fakeData = new LinkedList<>();
 
@@ -61,7 +61,7 @@ public class InterviewerControllerTest {
 
   @Test
   @DisplayName("Controller should save an interviewer")
-  public void saveTest() {
+  void saveTest() {
     // Arrange
     CreateInterviewerDTO dto = new CreateInterviewerDTO();
 
